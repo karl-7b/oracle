@@ -7,7 +7,7 @@ month = today.getMonth();
 
 let dabbyeon = dabfile;
 
-dabbyeongaesu = Object.keys(dabbyeon).length;
+var dabbyeongaesu = Object.keys(dabbyeon).length;
 
 let usernametoarray = username.split('').map(function(char) {
     return char.charCodeAt(0) % 157;
@@ -17,9 +17,15 @@ var usernameint = 1;
 for (const j in usernametoarray) {
     usernameint = usernameint + usernametoarray[j];
 }
-number = (month + 1 + (date) * (date) + usernameint);
+var seed = month + 1 + date + usernameint;
+console.log(seed);
+var x = Math.sin(seed) * 10000;
+console.log(x);
+number = Math.floor(dabbyeongaesu * (x - Math.floor(x)));
+console.log(number);
+
 //console.log(number);
-result = number % dabbyeongaesu;
+var result = number % dabbyeongaesu;
 
 
 
